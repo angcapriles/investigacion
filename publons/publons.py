@@ -134,6 +134,7 @@ class Publons():
                     writer.writerow([rsid])
                 print("=== No result for the search")
                 self.driver.back()
+                time.sleep(10)
                 return
             try:
                 area_institution = self.driver.find_element_by_xpath(
