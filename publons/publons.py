@@ -148,6 +148,7 @@ class Publons():
                         writer = csv.writer(csvFile)
                         writer.writerow(data_to_csv)
                     csvFile.close()
+                    print("==== This profile was written to the csv.")
                     self.driver.back()
                     time.sleep(10)
             except Exception as e:
