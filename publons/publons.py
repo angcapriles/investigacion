@@ -34,6 +34,41 @@ class Publons():
         print("Loading page....")
         self.driver.get(url)
 
+    def get_summary(self):
+        try:
+            publications = self.driver.find_element_by_xpath(
+                "//*[@class = 'researcher-card-metrics left-bar-figures']/div[1]/p").text
+        except:
+            publications = "NA"
+
+        try:
+            total_times_cited = self.driver.find_element_by_xpath(
+                "//*[@class = 'researcher-card-metrics left-bar-figures']/div[2]/p").text
+        except:
+            total_times_cited = "NA"
+
+        try:
+            h_index = self.driver.find_element_by_xpath(
+                "//*[@class = 'researcher-card-metrics left-bar-figures']/div[3]/p").text
+            clean_h_index = re.findall("\d+", h_index)[0]
+        except:
+            h_index = "NA"
+
+        try:
+            verified_reviews = self.driver.find_element_by_xpath(
+                "//*[@class = 'researcher-card-metrics left-bar-figures']/div[4]/p").text
+        except:
+            verified_reviews = "NA"
+
+        try:
+            verified_editor_records = self.driver.find_element_by_xpath(
+                "//*[@class = 'researcher-card-metrics left-bar-figures']/div[5]/p").text
+        except:
+            verified_editor_records = "NA"
+        time.sleep(10)
+        return [publications, total_times_cited,
+                         clean_h_index, verified_reviews, verified_editor_records]
+
     def get_metric(self):
         self.driver.find_element_by_xpath(
             '//*[@class = "researcher-profile-page-navigation-link researcher-profile-page-backbone-link"]').click()
@@ -64,9 +99,11 @@ class Publons():
                 '//*[@class = "individual-stats"]/div[3]/div[5]/div/div[2]/p').text
         except:
             p_m_average_citations_per_year = "NA"
-        time.sleep(5)
+
+        time.sleep(10)
         self.driver.back()
-        time.sleep(2)
+        time.sleep(5)
+
         return [p_m_pub_in_web_science, p_m_sum_times_cited, pm_m_clean_h_index, p_m_average_citations_per_item, p_m_average_citations_per_year]
 
     def get_profile(self, rsid):
@@ -95,53 +132,22 @@ class Publons():
             except Exception as e:
                 print(e)
                 print("=== No result for the search")
-                self.driver.execute_script("window.history.go(-1)")
+                self.driver.back()
                 return
 
             try:
-                publications = self.driver.find_element_by_xpath(
-                    "//*[@class = 'researcher-card-metrics left-bar-figures']/div[1]/p").text
-            except:
-                publications = "NA"
-
-            try:
-                total_times_cited = self.driver.find_element_by_xpath(
-                    "//*[@class = 'researcher-card-metrics left-bar-figures']/div[2]/p").text
-            except:
-                total_times_cited = "NA"
-
-            try:
-                h_index = self.driver.find_element_by_xpath(
-                    "//*[@class = 'researcher-card-metrics left-bar-figures']/div[3]/p").text
-                clean_h_index = re.findall("\d+", h_index)[0]
-            except:
-                h_index = "NA"
-
-            try:
-                verified_reviews = self.driver.find_element_by_xpath(
-                    "//*[@class = 'researcher-card-metrics left-bar-figures']/div[4]/p").text
-            except:
-                verified_reviews = "NA"
-
-            try:
-                verified_editor_records = self.driver.find_element_by_xpath(
-                    "//*[@class = 'researcher-card-metrics left-bar-figures']/div[5]/p").text
-            except:
-                verified_editor_records = "NA"
-
-            try:
-                data_to_csv = [name, area_institution, publications, total_times_cited,
-                                 clean_h_index, verified_reviews, verified_editor_records]
+                data_to_csv = [name, area_institution]
+                summary = self.get_summary()
                 metrics = self.get_metric()
+                data_to_csv.extend(summary)
                 data_to_csv.extend(metrics)
                 time.sleep(5)
-                if len(metrics) > 0:
+                if len(metrics) > 0 and len(summary) > 0:
                     # Writing the result to csv file
                     with open('profile_publons.csv', 'a') as csvFile:
                         writer = csv.writer(csvFile)
                         writer.writerow(data_to_csv)
                     csvFile.close()
-                    print(name, publications)
                     self.driver.back()
                     time.sleep(10)
             except Exception as e:
