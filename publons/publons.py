@@ -127,13 +127,16 @@ class Publons():
             try:
                 name = self.driver.find_element_by_xpath(
                     "//*[@class = 'researcher-card-names']/h2").text
-                area_institution = self.driver.find_element_by_xpath(
-                    "//*[@class = 'researcher-card-institution']/p/a").text
             except Exception as e:
                 print(e)
                 print("=== No result for the search")
                 self.driver.back()
                 return
+            try:
+                area_institution = self.driver.find_element_by_xpath(
+                    "//*[@class = 'researcher-card-institution']/p/a").text
+            except:
+                area_institution = "NA"
 
             try:
                 data_to_csv = [name, area_institution]
