@@ -88,7 +88,7 @@ class Publons():
                 '//*[@class = "individual-stats"]/div[3]/div[3]/div/div[2]/p').text
             pm_m_clean_h_index = re.findall("\d+", p_m_index_h)[0]
         except:
-            p_m_index_h = "NA"
+            pm_m_clean_h_index = "NA"
         try:
             p_m_average_citations_per_item = self.driver.find_element_by_xpath(
                 '//*[@class = "individual-stats"]/div[3]/div[4]/div/div[2]/p').text
