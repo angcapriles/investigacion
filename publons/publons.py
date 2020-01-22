@@ -52,7 +52,7 @@ class Publons():
                 "//*[@class = 'researcher-card-metrics left-bar-figures']/div[3]/p").text
             clean_h_index = re.findall("\d+", h_index)[0]
         except:
-            h_index = "NA"
+            clean_h_index = "NA"
 
         try:
             verified_reviews = self.driver.find_element_by_xpath(
