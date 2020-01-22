@@ -33,6 +33,7 @@ class PageRank():
                                             options=options)
         print("Loading page....")
         self.driver.get(url)
+
     def get_rank_data(self):
         pages_list = self.driver.find_elements_by_xpath('//*[@class="item-list"]/ul/li')
         print("Total pages -->", len(pages_list))

@@ -16,20 +16,19 @@ from selenium.webdriver.chrome.options import Options
 
 class Sholar():
     def __init__(self):
-        self.selected_profile = ""
         url = 'https://scholar.google.com/citations?view_op=search_authors&hl=en&mauthors='
         try:
             opts = Options()
             opts.add_argument("no-sandbox")
             opts.add_argument("--headless")
             opts.add_argument("--disable-extensions")
-            self.driver = webdriver.Firefox(executable_path='./geckodriver')
+            self.driver = webdriver.Firefox(executable_path='/bin/firefox_driver/geckodriver')
         except:
-            options = webdriver.ChromeOptions()
-            options.add_argument("no-sandbox")
-            options.add_argument("--headless")
-            options.add_argument("--disable-extensions")
-            self.driver = webdriver.Chrome(executable_path=".\chromedriver.exe", options=options)
+            opts = Options()
+            opts.add_argument("no-sandbox")
+            opts.add_argument("--headless")
+            opts.add_argument("--disable-extensions")
+            self.driver = webdriver.Firefox(executable_path=".\geckodriver.exe")
         self.driver.get(url)
 
 
@@ -44,17 +43,17 @@ class Sholar():
             self.driver.execute_script("document.getElementById('gs_hdr_tsi').value='"+name+"'")
             time.sleep(2)
             self.driver.find_element_by_xpath('//*[@id = "gs_hdr_tsb"]').click()
-        except:
-            print("** No profile in the search result **")
 
-        # Wait for search results to load
-        WebDriverWait(self.driver, 30).until(
-            expected_conditions.invisibility_of_element_located((By.ID, 'ajax_loader'))
-        )
-        time.sleep(2)
-        results = self.driver.find_elements_by_xpath('//*[@id = "gsc_sa_ccl"]/div')
-        print('Result number', len(results))
+            # Wait for search results to load
+            WebDriverWait(self.driver, 30).until(
+                expected_conditions.invisibility_of_element_located((By.ID, 'ajax_loader'))
+            )
+            time.sleep(2)
+        except:
+            print("** 404 **")
         try:
+            results = self.driver.find_elements_by_xpath('//*[@id = "gsc_sa_ccl"]/div')
+            print('Result number', len(results))
             links = []
             for result in results:
                 if self.check_profile_link(name, univ, result):
@@ -70,6 +69,7 @@ class Sholar():
             print("** End **")
         except:
             print("** No results **")
+
     def check_profile_link(self, name, univ, result):
         check = False
         r_univ = univ.split(",")
@@ -87,6 +87,7 @@ class Sholar():
                         check = True
         if check:
             print("found")
+            self.country = r_univ[-1]
             return True
         else:
             print("Not found")
@@ -95,11 +96,6 @@ class Sholar():
     def get_profile_data(self):
         # Extraer informacion de perfil.
         try:
-            self.driver.find_element_by_xpath('//*[@id = "gsc_bpf_more"]').click()
-        except:
-            pass
-        try:
-            time.sleep(20)
             # Extracting profile data
             profile = []
             name = self.driver.find_element_by_xpath('//*[@id="gsc_prf_i"]/div[1]').text
@@ -109,10 +105,17 @@ class Sholar():
             areas_list = []
             for area in areas:
                 areas_list.append(area.text)
+
             profile_h = self.driver.find_element_by_xpath('//*[@id="gsc_rsb_st"]/tbody/tr[2]/td[2]').text
             profile_i10 = self.driver.find_element_by_xpath('//*[@id="gsc_rsb_st"]/tbody/tr[3]/td[2]').text
+            profile_citations = self.driver.find_element_by_xpath('//*[@id="gsc_rsb_st"]/tbody/tr[1]/td[2]').text
+
+            s_profile_h = self.driver.find_element_by_xpath('//*[@id="gsc_rsb_st"]/tbody/tr[2]/td[3]').text
+            s_profile_i10 = self.driver.find_element_by_xpath('//*[@id="gsc_rsb_st"]/tbody/tr[3]/td[3]').text
+            S_profile_citations = self.driver.find_element_by_xpath('//*[@id="gsc_rsb_st"]/tbody/tr[1]/td[3]').text
+
             areas = ', '.join(areas_list)
-            profile.extend([name, studies, areas, profile_h, profile_i10])
+            profile.extend([name, self.country, studies, areas, profile_citations, profile_h, profile_i10, S_profile_citations, s_profile_h, s_profile_i10])
 
             # Looking for coautor
             co_autors = self.driver.find_elements_by_xpath('//*[@id="gsc_rsb_co"]/ul/li')
@@ -133,9 +136,10 @@ class Sholar():
             print(profile)
             self.driver.execute_script('window.close()')
         except:
+            print("** Something is wrong **")
             self.driver.execute_script('window.close()')
             self.driver.switch_to.window(self.driver.window_handles[0])
-            self.driver.close()
+            #self.driver.close()
     def close_all(self):
         self.driver.execute_script('window.close()')
         self.driver.switch_to.window(self.driver.window_handles[0])
@@ -143,7 +147,7 @@ class Sholar():
 
 if __name__ == "__main__":
     scholar = Sholar()
-    col = ['NOMBRE', 'UNIVERSIDAD', 'AREAS DE ESTUDIO', 'H', 'I10']
+    col = ['NOMBRE', 'COUNTRY', 'UNIVERSIDAD', 'AREAS DE ESTUDIO', 'ALL-CITATIONS', 'All-H', 'All-I10', 'SINCE 2015-CITATIONS', 'SINCE 2015-H', 'SINCE 2015-I10']
     coautor = []
     for cindex in range(20):
         name = "CO-AUTOR {}".format(cindex)

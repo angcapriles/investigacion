@@ -20,16 +20,15 @@ class PageRank():
         try:
             opts = Options()
             opts.add_argument("no-sandbox")
-            #opts.add_argument("--headless")
+            opts.add_argument("--headless")
             opts.add_argument("--disable-extensions")
-            self.driver = webdriver.Firefox(executable_path='./geckodriver')
-
+            self.driver = webdriver.Firefox(executable_path='/bin/firefox_driver/geckodriver')
         except:
-            options = webdriver.ChromeOptions()
-            options.add_argument("no-sandbox")
-            #options.add_argument("--headless")
-            options.add_argument("--disable-extensions")
-            self.driver = webdriver.Chrome(executable_path=".\chromedriver.exe", options=options)
+            opts = Options()
+            opts.add_argument("no-sandbox")
+            opts.add_argument("--headless")
+            opts.add_argument("--disable-extensions")
+            self.driver = webdriver.Firefox(executable_path=".\geckodriver.exe")
         print("Loading page....")
         self.driver.get(url)
     def get_page_data(self):
@@ -40,7 +39,7 @@ class PageRank():
                 inst = uni_r.find_element_by_xpath('td[2]').text
                 country = uni_r.find_element_by_xpath('td[3]').find_element_by_tag_name('a').get_attribute('href').split('2019')[1].split('.')[0].replace('/', '')
                 n_rank = uni_r.find_element_by_xpath('td[4]').text
-                total_score = uni_r.find_element_by_xpath('td[4]').text
+                total_score = uni_r.find_element_by_xpath('td[5]').text
                 # Writing the result to csv file
                 with open('rank_page.csv', 'a') as csvFile:
                     writer = csv.writer(csvFile)
