@@ -129,6 +129,9 @@ class Publons():
                     "//*[@class = 'researcher-card-names']/h2").text
             except Exception as e:
                 print(e)
+                with open('profile_publons.csv', 'a') as csvFile:
+                    writer = csv.writer(csvFile)
+                    writer.writerow([rsid])
                 print("=== No result for the search")
                 self.driver.back()
                 return
@@ -171,6 +174,9 @@ if __name__ == "__main__":
 
     col = ['Nombre', 'Area - Institucion', 'Publications',
            'Total times cited', 'H-Index', 'Verified reviews', 'Verified editor records', 'P.M. Publications in Web of Science', 'P.M. Sum of times cited', 'P.M. H-Index', 'P.M. Average citations per item', 'P.M. Average citations per year']
+    with open('untraked_profile_publons.csv', 'w') as csvFile:
+        writer = csv.writer(csvFile)
+        writer.writerow(col)
     with open('profile_publons.csv', 'w') as csvFile:
         writer = csv.writer(csvFile)
         writer.writerow(col)
