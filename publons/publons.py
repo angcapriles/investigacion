@@ -2,6 +2,7 @@ import csv
 import os
 import re
 import time
+
 # Selenium requirements
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
@@ -12,6 +13,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.ui import WebDriverWait
+
 
 class Publons():
     def __init__(self):
@@ -67,12 +69,15 @@ class Publons():
             verified_editor_records = "NA"
         time.sleep(10)
         return [publications, total_times_cited,
-                         clean_h_index, verified_reviews, verified_editor_records]
+                clean_h_index, verified_reviews, verified_editor_records]
 
     def get_metric(self):
-        self.driver.find_element_by_xpath(
-            '//*[@class = "researcher-profile-page-navigation-link researcher-profile-page-backbone-link"]').click()
-        time.sleep(5)
+        try:
+            self.driver.find_element_by_xpath(
+                '//*[@class = "researcher-profile-page-navigation-link researcher-profile-page-backbone-link"]').click()
+            time.sleep(5)
+        except:
+            pass
         try:
             p_m_pub_in_web_science = self.driver.find_element_by_xpath(
                 '//*[@class = "individual-stats"]/div[3]/div[1]/div/div[2]/p').text
@@ -168,6 +173,7 @@ class Publons():
     def close_all(self):
         self.driver.execute_script('window.close()')
         self.driver.close()
+
 
 if __name__ == "__main__":
     print("### Script Began ###")

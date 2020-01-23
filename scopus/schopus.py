@@ -35,15 +35,16 @@ class Schopus():
         self.driver.get(url)
     def get_profile(self, orcid):
         if orcid != "NA":
+            time.sleep(10)
             try:
-                time.sleep(10)
                 self.driver.execute_script("document.getElementById('orcidId').value='"+orcid+"'")
                 print(orcid)
-                time.sleep(2)
                 self.driver.find_element_by_xpath('//*[@id = "orcidSubmitBtn"]').click()
             except Exception as e:
                 print(e)
+                print("==== Script finalizado por fallas en la conexion.")
                 self.close_all()
+            time.sleep(10)
             try:
                 self.driver.find_element_by_class_name('docTitle').click()
                 time.sleep(5)
@@ -53,9 +54,15 @@ class Schopus():
                 return
 
             name = self.driver.find_element_by_class_name("wordBreakWord").text
-            full_data_uni = self.driver.find_element(By.ID, "firstAffiliationInHistory").text.split(',')
-            univ =  full_data_uni[0]
-            country = full_data_uni[-1].split('View')[0]
+            try:
+                full_data_uni = self.driver.find_element(By.ID, "firstAffiliationInHistory").text.split(',')
+                univ =  full_data_uni[0]
+            except:
+                univ = "NA"
+            try:
+                country = full_data_uni[-1].split('View')[0]
+            except:
+                country = "NA"
             try:
                 areas = self.driver.find_elements_by_xpath('//*[@id="subjectAreaBadges"]/span')
                 areas_list = []
