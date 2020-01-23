@@ -37,6 +37,7 @@ class Publons():
         self.driver.get(url)
 
     def get_summary(self):
+        time.sleep(10)
         try:
             publications = self.driver.find_element_by_xpath(
                 "//*[@class = 'researcher-card-metrics left-bar-figures']/div[1]/p").text
@@ -134,9 +135,7 @@ class Publons():
                     "//*[@class = 'researcher-card-names']/h2").text
             except Exception as e:
                 print(e)
-                with open('profile_publons.csv', 'a') as csvFile:
-                    writer = csv.writer(csvFile)
-                    writer.writerow([rsid])
+                self.id_no_found(rsid)
                 print("=== No result for the search")
                 self.driver.back()
                 time.sleep(10)
@@ -146,11 +145,21 @@ class Publons():
                     "//*[@class = 'researcher-card-institution']/p/a").text
             except:
                 area_institution = "NA"
+            
+            try:
+                summary = self.get_summary()
+            except:
+                summary = []
+                self.id_no_found(rsid)
+            try:
+                metrics = self.get_metric()
+            except:
+                metrics = []
+                self.id_no_found(rsid)
 
             try:
                 data_to_csv = [name, area_institution]
-                summary = self.get_summary()
-                metrics = self.get_metric()
+                
                 data_to_csv.extend(summary)
                 data_to_csv.extend(metrics)
                 time.sleep(5)
@@ -169,6 +178,11 @@ class Publons():
                 time.sleep(10)
         else:
             print(rsid)
+            
+    def id_no_found(self, rsid):
+        with open('untraked_profile_publons.csv', 'a') as csvFile:
+            writer = csv.writer(csvFile)
+            writer.writerow([rsid])
 
     def close_all(self):
         self.driver.execute_script('window.close()')
@@ -183,7 +197,6 @@ if __name__ == "__main__":
            'Total times cited', 'H-Index', 'Verified reviews', 'Verified editor records', 'P.M. Publications in Web of Science', 'P.M. Sum of times cited', 'P.M. H-Index', 'P.M. Average citations per item', 'P.M. Average citations per year']
     with open('untraked_profile_publons.csv', 'w') as csvFile:
         writer = csv.writer(csvFile)
-        writer.writerow(col)
     with open('profile_publons.csv', 'w') as csvFile:
         writer = csv.writer(csvFile)
         writer.writerow(col)
