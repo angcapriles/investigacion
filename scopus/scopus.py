@@ -36,7 +36,6 @@ class Schopus():
             self.driver = webdriver.Firefox(
                 executable_path=".\geckodriver.exe")
         self.driver.get(self.url)
-
     def _catch_element_or_not(self, element, type=0):
         if type == 2:
             try:
@@ -47,11 +46,11 @@ class Schopus():
         else:
             try:
                 result = self.driver.find_element_by_xpath(element).text
-
+                
             except Exception as e:
                 print(e)
                 result = "NA"
-
+            
         return result
 
     def get_profile(self, orcid):
@@ -79,14 +78,14 @@ class Schopus():
                 time.sleep(5)
                 return
 
-            name = self._catch_element_or_not('//*[@class="wordBreakWord"]')
+            name = self._catch_element_or_not('//*[@class="wordBreakWord"]').encode()
 
             full_data_uni = self._catch_element_or_not(
                 '//*[@id="firstAffiliationInHistory"]')
             if full_data_uni != "NA":
                 full_data_uni = full_data_uni.split(',')
-
-                univ = full_data_uni[0]
+                
+                univ = full_data_uni[0].encode()
                 country = full_data_uni[-1].split('View')[0]
             else:
                 univ = "NA"
@@ -142,7 +141,6 @@ class Schopus():
         self.driver.execute_script('window.close()')
         self.driver.close()
 
-
 if __name__ == "__main__":
     print("### Script Began ###")
     schopus = Schopus()
@@ -158,14 +156,19 @@ if __name__ == "__main__":
     readFile = iter(readFile)
     next(readFile)
     index = 0
+    ready = []
     for row in readFile:
-        schopus.get_profile(row[2].lstrip())
-        if index == 40:
-            print("==== Reload page")
-            schopus.reload_page()
-            index = 0
+        if row[2].lstrip() not in ready:
+            schopus.get_profile(row[2].lstrip())
+            if index == 40:
+                print("==== Reload page")
+                schopus.reload_page()
+                index = 0
+            else:
+                index += 1
+            ready.append(row[2].lstrip())
         else:
-            index += 1
+            print("Item repetido", row[2].lstrip())
 
     schopus.close_all()
     print("## End ##")

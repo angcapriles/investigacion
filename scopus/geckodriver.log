@@ -3807,3 +3807,184 @@ JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: S
 1579928371311	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
 bail@chrome://marionette/content/sync.js:237:64
 1579928378693	Marionette	INFO	Stopped listening on port 38343
+1579929071038	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileXApOuB"
+1579929073114	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1579929073850	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1579929073850	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1579929073851	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1579929073852	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1579929091753	Marionette	INFO	Listening on port 44269
+1579929091840	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+1579999121648	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileP7x7qO"
+1579999123135	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1579999123770	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1579999123770	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1579999123771	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1579999123772	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1579999131720	Marionette	INFO	Listening on port 34279
+1579999131834	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: resource:///actors/ContentMetaChild.jsm, line 167: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+1580132797429	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileK7OapE"
+1580132799600	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1580132800388	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1580132800388	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1580132800390	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1580132800390	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1580132809304	Marionette	INFO	Listening on port 36143
+1580132809398	Marionette	WARN	TLS certificate errors will be ignored for this session
+1580132824120	Marionette	INFO	Stopped listening on port 36143
+1580133051871	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileAipgF1"
+1580133053299	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1580133053896	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1580133053896	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1580133053910	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1580133053910	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1580133064883	Marionette	INFO	Listening on port 34171
+1580133064982	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+1580133118461	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:237:64
+1580133134297	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:237:64
+nrWrapper@https://www.scopus.com/results/authorNamesList.uri?sort=count-f&src=al&orcidId=0000-0003-0716-8079&sid=f907e484c408737712ae679ac2383a0c&sot=al&sdt=al&sl=36&s=AUTH--ORCID--ID%280000-0003-0716-8079%29&selectionPageSearch=anl&reselectAuthor=false&activeFlag=true&showDocument=false&resultsPerPage=20&offset=1&jtp=false&currentPage=1&previousSelectionCount=0&tooManySelections=false&previousResultCount=0&authSubject=LFSC&authSubject=HLSC&authSubject=PHSC&authSubject=SOSC&exactAuthorSearch=false&showFullList=false&authorPreferredName=&origin=searchauthorfreelookup&affiliationId=&txGid=4b07670824b17247ee4c1c694ec87eee:8:19390
+send@https://www.scopus.com/gzip_N1000475237/bundles/masterjquery.js:550:5
+ajax@https://www.scopus.com/gzip_N1000475237/bundles/masterjquery.js:511:23
+Cookie_getCookiesWithPath@https://www.scopus.com/gzip_N1177748687/bundles/AuthorFreeResultsBottomMaster.js:970:71
+Cookie_getCookies@https://www.scopus.com/gzip_N1177748687/bundles/AuthorFreeResultsBottomMaster.js:969:9
+Cookie@https://www.scopus.com/gzip_N1177748687/bundles/AuthorFreeResultsBottomMaster.js:953:596
+writeScreenInfoCookie@https://www.scopus.com/gzip_N1519985687/bundles/AuthorFreeResultsTopMaster.js:14:45
+onBodyLoad@https://www.scopus.com/gzip_N1519985687/bundles/AuthorFreeResultsTopMaster.js:10:23
+onload@https://www.scopus.com/results/authorNamesList.uri?sort=count-f&src=al&orcidId=0000-0003-0716-8079&sid=f907e484c408737712ae679ac2383a0c&sot=al&sdt=al&sl=36&s=AUTH--ORCID--ID%280000-0003-0716-8079%29&selectionPageSearch=anl&reselectAuthor=false&activeFlag=true&showDocument=false&resultsPerPage=20&offset=1&jtp=false&currentPage=1&previousSelectionCount=0&tooManySelections=false&previousResultCount=0&authSubject=LFSC&authSubject=HLSC&authSubject=PHSC&authSubject=SOSC&exactAuthorSearch=false&showFullList=false&authorPreferredName=&origin=searchauthorfreelookup&affiliationId=&txGid=4b07670824b17247ee4c1c694ec87eee:1:1
+1580133164830	Marionette	INFO	Stopped listening on port 34171
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1580133470991	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilernrcg5"
+1580133472550	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1580133473227	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1580133473228	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1580133473229	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1580133473230	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1580133483176	Marionette	INFO	Listening on port 37115
+1580133483275	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+1580133600660	Marionette	INFO	Stopped listening on port 37115
+1580134671347	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilewQAGdU"
+1580134672883	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1580134673617	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1580134673618	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1580134673633	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1580134673633	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1580134682144	Marionette	INFO	Listening on port 39015
+1580134682241	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+1580134816946	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:237:64
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+1580135111540	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiley3bbal"
+1580135114440	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1580135115347	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1580135115347	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1580135115348	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1580135115349	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1580135126894	Marionette	INFO	Listening on port 45685
+1580135127022	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1580135424528	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilerhpsyt"
+1580135427732	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1580135428466	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1580135428467	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1580135428469	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1580135428470	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1580135437221	Marionette	INFO	Listening on port 34087
+1580135437322	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+1580135448920	Marionette	INFO	Stopped listening on port 34087
+1580136113364	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileWuL9lz"
+1580136114810	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1580136115405	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1580136115406	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1580136115428	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1580136115429	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1580136123737	Marionette	INFO	Listening on port 35271
+1580136123839	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/results/authorNamesList.uri?sort=count-f&src=al&orcidId=0000-0003-0220-7956&sid=840c3973695a0b4329235eed022655ba&sot=al&sdt=al&sl=36&s=AUTH--ORCID--ID%280000-0003-0220-7956%29&selectionPageSearch=anl&reselectAuthor=false&activeFlag=true&showDocument=false&resultsPerPage=20&offset=1&jtp=false&currentPage=1&previousSelectionCount=0&tooManySelections=false&previousResultCount=0&authSubject=LFSC&authSubject=HLSC&authSubject=PHSC&authSubject=SOSC&exactAuthorSearch=false&showFullList=false&authorPreferredName=&origin=searchauthorfreelookup&affiliationId=&txGid=47d820c5205d9f06b10499052f9b88f1, line 557: ReferenceError: pendo is not defined
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 363: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.scopus.com/freelookup/form/author.uri, line 377: SyntaxError: '' string literal contains an unescaped line break
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.

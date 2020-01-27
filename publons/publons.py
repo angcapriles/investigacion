@@ -17,7 +17,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 class Publons():
     def __init__(self):
-        url = 'https://publons.com/search/'
+        self.url = 'https://publons.com/search/'
+        self.load_page()
+
+    def load_page(self):
         try:
             opts = Options()
             opts.add_argument("no-sandbox")
@@ -32,43 +35,49 @@ class Publons():
             opts.add_argument("--disable-extensions")
             self.driver = webdriver.Firefox(
                 executable_path=".\geckodriver.exe")
+        self.driver.get(self.url)
 
-        print("Loading page....")
-        self.driver.get(url)
+    def _catch_element_or_not(self, element, type=0):
+        if type == 2:
+            try:
+                result = self.driver.find_elements_by_xpath(element)
+            except Exception as e:
+                print(e)
+                result = "NA"
+        else:
+            try:
+                result = self.driver.find_element_by_xpath(element).text
+
+            except Exception as e:
+                print(e)
+                result = "NA"
+
+        return result
 
     def get_summary(self):
         time.sleep(10)
-        try:
-            publications = self.driver.find_element_by_xpath(
-                "//*[@class = 'researcher-card-metrics left-bar-figures']/div[1]/p").text
-        except:
-            publications = "NA"
 
-        try:
-            total_times_cited = self.driver.find_element_by_xpath(
-                "//*[@class = 'researcher-card-metrics left-bar-figures']/div[2]/p").text
-        except:
-            total_times_cited = "NA"
+        publications = self._catch_element_or_not(
+            "//*[@class = 'researcher-card-metrics left-bar-figures']/div[1]/p")
 
-        try:
-            h_index = self.driver.find_element_by_xpath(
-                "//*[@class = 'researcher-card-metrics left-bar-figures']/div[3]/p").text
+        total_times_cited = self._catch_element_or_not(
+            "//*[@class = 'researcher-card-metrics left-bar-figures']/div[2]/p")
+
+        h_index = self._catch_element_or_not(
+            "//*[@class = 'researcher-card-metrics left-bar-figures']/div[3]/p")
+        if h_index != "NA" and h_index != "-" :
             clean_h_index = re.findall("\d+", h_index)[0]
-        except:
+        else:
             clean_h_index = "NA"
+            
 
-        try:
-            verified_reviews = self.driver.find_element_by_xpath(
-                "//*[@class = 'researcher-card-metrics left-bar-figures']/div[4]/p").text
-        except:
-            verified_reviews = "NA"
+        verified_reviews = self._catch_element_or_not(
+            "//*[@class = 'researcher-card-metrics left-bar-figures']/div[4]/p")
 
-        try:
-            verified_editor_records = self.driver.find_element_by_xpath(
-                "//*[@class = 'researcher-card-metrics left-bar-figures']/div[5]/p").text
-        except:
-            verified_editor_records = "NA"
+        verified_editor_records = self._catch_element_or_not(
+            "//*[@class = 'researcher-card-metrics left-bar-figures']/div[5]/p")
         time.sleep(10)
+
         return [publications, total_times_cited,
                 clean_h_index, verified_reviews, verified_editor_records]
 
@@ -77,34 +86,27 @@ class Publons():
             self.driver.find_element_by_xpath(
                 '//*[@class = "researcher-profile-page-navigation-link researcher-profile-page-backbone-link"]').click()
             time.sleep(5)
-        except:
-            pass
-        try:
-            p_m_pub_in_web_science = self.driver.find_element_by_xpath(
-                '//*[@class = "individual-stats"]/div[3]/div[1]/div/div[2]/p').text
-        except:
-            p_m_pub_in_web_science = "NA"
-        try:
-            p_m_sum_times_cited = self.driver.find_element_by_xpath(
-                '//*[@class = "individual-stats"]/div[3]/div[2]/div/div[2]/p').text
-        except:
-            p_m_sum_times_cited = "NA"
-        try:
-            p_m_index_h = self.driver.find_element_by_xpath(
-                '//*[@class = "individual-stats"]/div[3]/div[3]/div/div[2]/p').text
+        except Exception as e:
+            print(e)
+
+        p_m_pub_in_web_science = self._catch_element_or_not(
+            '//*[@class = "individual-stats"]/div[3]/div[1]/div/div[2]/p')
+
+        p_m_sum_times_cited = self._catch_element_or_not(
+            '//*[@class = "individual-stats"]/div[3]/div[2]/div/div[2]/p')
+
+        p_m_index_h = self._catch_element_or_not(
+            '//*[@class = "individual-stats"]/div[3]/div[3]/div/div[2]/p')
+        if p_m_index_h != "NA" and p_m_index_h != "-":
             pm_m_clean_h_index = re.findall("\d+", p_m_index_h)[0]
-        except:
+        else:
             pm_m_clean_h_index = "NA"
-        try:
-            p_m_average_citations_per_item = self.driver.find_element_by_xpath(
-                '//*[@class = "individual-stats"]/div[3]/div[4]/div/div[2]/p').text
-        except:
-            p_m_average_citations_per_item = "NA"
-        try:
-            p_m_average_citations_per_year = self.driver.find_element_by_xpath(
-                '//*[@class = "individual-stats"]/div[3]/div[5]/div/div[2]/p').text
-        except:
-            p_m_average_citations_per_year = "NA"
+
+        p_m_average_citations_per_item = self._catch_element_or_not(
+            '//*[@class = "individual-stats"]/div[3]/div[4]/div/div[2]/p')
+
+        p_m_average_citations_per_year = self._catch_element_or_not(
+            '//*[@class = "individual-stats"]/div[3]/div[5]/div/div[2]/p')
 
         time.sleep(10)
         self.driver.back()
@@ -114,7 +116,7 @@ class Publons():
 
     def get_profile(self, rsid):
         if rsid != "NA":
-            time.sleep(5)
+            time.sleep(10)
             print(rsid)
             try:
                 search_input = self.driver.find_element_by_xpath(
@@ -140,49 +142,45 @@ class Publons():
                 self.driver.back()
                 time.sleep(10)
                 return
-            try:
-                area_institution = self.driver.find_element_by_xpath(
-                    "//*[@class = 'researcher-card-institution']/p/a").text
-            except:
-                area_institution = "NA"
-            
-            try:
-                summary = self.get_summary()
-            except:
-                summary = []
-                self.id_no_found(rsid)
-            try:
-                metrics = self.get_metric()
-            except:
-                metrics = []
-                self.id_no_found(rsid)
+
+            area_institution = self._catch_element_or_not(
+                "//*[@class = 'researcher-card-institution']/p/a")
+
+            summary = self.get_summary()
+
+
+            metrics = self.get_metric()
 
             try:
                 data_to_csv = [name, area_institution]
-                
                 data_to_csv.extend(summary)
                 data_to_csv.extend(metrics)
                 time.sleep(5)
-                if len(metrics) > 0 and len(summary) > 0:
-                    # Writing the result to csv file
-                    with open('profile_publons.csv', 'a') as csvFile:
-                        writer = csv.writer(csvFile)
-                        writer.writerow(data_to_csv)
-                    csvFile.close()
-                    print("==== This profile was written to the csv.")
-                    self.driver.back()
-                    time.sleep(10)
+                # Writing the result to csv file
+                with open('profile_publons.csv', 'a') as csvFile:
+                    writer = csv.writer(csvFile)
+                    writer.writerow(data_to_csv)
+                csvFile.close()
+                print("==== This profile was written to the csv.")
+                self.driver.back()
+                time.sleep(10)
             except Exception as e:
                 print(e)
+                self.id_no_found(rsid)
                 self.driver.back()
                 time.sleep(10)
         else:
             print(rsid)
-            
+
     def id_no_found(self, rsid):
         with open('untraked_profile_publons.csv', 'a') as csvFile:
             writer = csv.writer(csvFile)
             writer.writerow([rsid])
+            
+    def reload_page(self):
+        self.close_all()
+        self.load_page()
+        time.sleep(10)
 
     def close_all(self):
         self.driver.execute_script('window.close()')
@@ -195,8 +193,10 @@ if __name__ == "__main__":
 
     col = ['Nombre', 'Area - Institucion', 'Publications',
            'Total times cited', 'H-Index', 'Verified reviews', 'Verified editor records', 'P.M. Publications in Web of Science', 'P.M. Sum of times cited', 'P.M. H-Index', 'P.M. Average citations per item', 'P.M. Average citations per year']
+
     with open('untraked_profile_publons.csv', 'w') as csvFile:
         writer = csv.writer(csvFile)
+
     with open('profile_publons.csv', 'w') as csvFile:
         writer = csv.writer(csvFile)
         writer.writerow(col)
@@ -205,8 +205,19 @@ if __name__ == "__main__":
     readFile = csv.reader(f)
     readFile = iter(readFile)
     next(readFile)
-    print("### Script Began ###")
+    print("### Script Begin ###")
+    index = 0
+    ready = []
     for row in readFile:
-        publons.get_profile(row[1].lstrip())
+        if row[1].lstrip() not in ready:
+            publons.get_profile(row[1].lstrip())
+            if index == 40:
+                print("==== Reload page")
+                publons.reload_page()
+                index = 0
+            else:
+                index += 1
+            ready.append(row[1].lstrip())
 
     publons.close_all()
+    print("## End ##")
