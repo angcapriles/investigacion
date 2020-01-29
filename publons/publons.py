@@ -65,9 +65,10 @@ class Publons():
 
         h_index = self._catch_element_or_not(
             "//*[@class = 'researcher-card-metrics left-bar-figures']/div[3]/p")
-        if h_index != "NA" and h_index != "-" :
+        try:
             clean_h_index = re.findall("\d+", h_index)[0]
-        else:
+        except Exception as e:
+            print(e)
             clean_h_index = "NA"
             
 
@@ -97,9 +98,10 @@ class Publons():
 
         p_m_index_h = self._catch_element_or_not(
             '//*[@class = "individual-stats"]/div[3]/div[3]/div/div[2]/p')
-        if p_m_index_h != "NA" and p_m_index_h != "-":
+        try:
             pm_m_clean_h_index = re.findall("\d+", p_m_index_h)[0]
-        else:
+        except Exception as e:
+            print(e)
             pm_m_clean_h_index = "NA"
 
         p_m_average_citations_per_item = self._catch_element_or_not(
